@@ -24,6 +24,8 @@ namespace Gameplay
         [SerializeField] private Vector2 offSet2D;
         [SerializeField] private Vector3 offSet3D;
         [SerializeField] private Transform groundCheckerTransform;
+        [SerializeField] private Vector2 direction2d = Vector2.down;
+        [SerializeField] private Vector3 direction3d = Vector3.down;
         
         [Header("Debug")]
         [SerializeField] private bool isGrounded;
@@ -89,9 +91,9 @@ namespace Gameplay
         {
             return lineOrSphere 
                 ? is3D
-                    ? Physics.RaycastAll(_origin3D, Vector3.down, rayCastLength, groundLayer)
+                    ? Physics.RaycastAll(_origin3D, direction3d, rayCastLength, groundLayer)
                         ?.Any(collider => collider.collider.gameObject != gameObject) ?? false
-                    : Physics2D.RaycastAll(_origin2D, Vector2.down, rayCastLength, groundLayer)
+                    : Physics2D.RaycastAll(_origin2D, direction2d, rayCastLength, groundLayer)
                         ?.Any(collider => collider.collider.gameObject != gameObject) ?? false
                 : is3D
                     ? Physics.OverlapSphere(_origin3D, sphereCastRadius, groundLayer)
