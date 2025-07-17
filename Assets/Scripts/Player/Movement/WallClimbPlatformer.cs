@@ -5,7 +5,7 @@ using Gameplay;
 
 namespace Player.Movement
 {
-    public class Walk : MonoBehaviour
+    public class WallClimbPlatformer : MonoBehaviour
     {
         private enum MoveState
         {
@@ -229,8 +229,6 @@ namespace Player.Movement
         {
             if (moveState != MoveState.VERTICAL)
                 return;
-            
-            Debug.Log(transform.rotation.z);
             
             if (!leftGroundChecker.IsGrounded
                 && Mathf.Approximately(transform.rotation.z, -RANDOM_ANGLE))

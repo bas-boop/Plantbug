@@ -6,10 +6,10 @@ using Player.Movement;
 namespace Player
 {
     [RequireComponent(typeof(PlayerInput))]
+    [RequireComponent(typeof(WallClimbPlatformer))]
     public sealed class InputParser : MonoBehaviour
     {
-        [SerializeField] private Walk walk;
-        [SerializeField] private Jump jump;
+        [SerializeField] private WallClimbPlatformer wallClimbPlatformer;
         
         private PlayerInput _playerInput;
         private InputActionAsset _inputActionAsset;
@@ -23,7 +23,7 @@ namespace Player
         private void Update()
         {
             Vector2 input = _inputActionAsset["Move"].ReadValue<Vector2>();
-            walk.SetInput(input);
+            wallClimbPlatformer.SetInput(input);
         }
 
         private void OnEnable() => AddListeners();
@@ -53,8 +53,8 @@ namespace Player
         
         #region Context
 
-        private void JumpAction(InputAction.CallbackContext context) => walk.Jump(); // jump.DoJump();
-        private void WallClimbAction(InputAction.CallbackContext context) => walk.WallAction();
+        private void JumpAction(InputAction.CallbackContext context) => wallClimbPlatformer.Jump();
+        private void WallClimbAction(InputAction.CallbackContext context) => wallClimbPlatformer.WallAction();
         private void ShootAction(InputAction.CallbackContext context) => Debug.Log("Make shoot");
 
         #endregion
