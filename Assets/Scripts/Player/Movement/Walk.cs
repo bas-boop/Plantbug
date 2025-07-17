@@ -6,25 +6,36 @@ namespace Player.Movement
 {
     public class Walk : MonoBehaviour
     {
-        [SerializeField] private UniversalGroundChecker leftChecker;
-        [SerializeField] private UniversalGroundChecker rightChecker;
-        [SerializeField] private float speed = 3f;
-        [SerializeField] private float maxSpeed = 5f;
-        [SerializeField] private float acceleration = 50f;
-        [SerializeField] private float gravityStrength = 30f;
-        [SerializeField] private float friction = 20f;
+        [SerializeField] private UniversalGroundChecker leftWallChecker;
+        [SerializeField] private UniversalGroundChecker rightWallChecker;
+        [SerializeField] private UniversalGroundChecker leftGroundChecker;
+        [SerializeField] private UniversalGroundChecker rightGroundChecker;
+        [SerializeField] private Rigidbody2D rigidbody2d;
+        [SerializeField] private float speed = 3;
+        [SerializeField] private float delecerationForce = 2;
 
+        private bool _wasMoving;
+        private bool _isMovingHorizotal = true;
         private Vector2 _input;
-        private Vector2 _velocity;
-        private Vector2 _gravity = Vector2.down;
-        private bool _isMovingHorizontal = true;
 
         private void Update()
         {
-            ApplyGravity();
-            ApplyMovement();
-            ApplyFriction();
-            Move();
+            if (_input == Vector2.zero)
+            {
+                if (_isMovingHorizotal)
+                    rigidbody2d.linearVelocityX = 0;
+                else
+                    rigidbody2d.linearVelocityY = 0;
+                
+                return;
+            }
+
+            if (_isMovingHorizotal)
+                rigidbody2d.linearVelocityX = _input.x * speed;
+            else
+                rigidbody2d.linearVelocityY = _input.y * speed;
+
+            _wasMoving = true;
         }
 
         public void SetInput(Vector2 input)
@@ -34,60 +45,51 @@ namespace Player.Movement
 
         public void SwitchWall()
         {
-            if (leftChecker.IsGrounded)
+            if (!_isMovingHorizotal)
             {
-                transform.rotation = Quaternion.Euler(0, 0, -90);
-                _isMovingHorizontal = !_isMovingHorizontal;
-                _gravity = Vector2.left;
-                _velocity = Vector2.zero; // Optional: reset velocity
+                ApplyWallTransition(
+                    0f,
+                    Vector3.down,
+                    new Vector3(-0.5f, 0),
+                    new Vector3(0.5f, 0)
+                );
+                
+                _isMovingHorizotal = true;
+            }
+            else if (leftWallChecker.IsGrounded)
+            {
+                ApplyWallTransition(
+                    -90f,
+                    Vector3.left,
+                    new Vector3(0, 0.5f),
+                    new Vector3(0, -0.5f)
+                );
+            }
+            else if (rightWallChecker.IsGrounded)
+            {
+                ApplyWallTransition(
+                    90f,
+                    Vector3.right,
+                    new Vector3(0, -0.5f),
+                    new Vector3(0, 0.5f)
+                );
             }
 
-            if (rightChecker.IsGrounded)
-            {
-                transform.rotation = Quaternion.Euler(0, 0, 90);
-                _isMovingHorizontal = !_isMovingHorizontal;
-                _gravity = Vector2.right;
-                _velocity = Vector2.zero; // Optional: reset velocity
-            }
+            rigidbody2d.gravityScale = _isMovingHorizotal ? 1 : 0;
         }
-
-        private void ApplyGravity()
+        
+        private void ApplyWallTransition(
+            float rotationZ, 
+            Vector3 direction, 
+            Vector3 leftOffset, 
+            Vector3 rightOffset)
         {
-            _velocity += _gravity * (gravityStrength * Time.deltaTime);
-        }
-
-        private void ApplyMovement()
-        {
-            Vector2 moveDir = _isMovingHorizontal ? Vector2.right : Vector2.up;
-            float inputAxis = _isMovingHorizontal ? _input.x : _input.y;
-
-            if (Mathf.Abs(inputAxis) > 0.01f)
-            {
-                _velocity += moveDir * (inputAxis * acceleration * Time.deltaTime);
-
-                // Clamp speed in move direction
-                float dot = Vector2.Dot(_velocity, moveDir);
-                if (Mathf.Abs(dot) > maxSpeed)
-                {
-                    float overflow = dot - Mathf.Sign(dot) * maxSpeed;
-                    _velocity -= moveDir * overflow;
-                }
-            }
-        }
-
-        private void ApplyFriction()
-        {
-            if (_input == Vector2.zero)
-            {
-                Vector2 moveDir = _isMovingHorizontal ? Vector2.right : Vector2.up;
-                Vector2 frictionForce = moveDir * (Vector2.Dot(_velocity, moveDir) * friction * Time.deltaTime);
-                _velocity -= frictionForce;
-            }
-        }
-
-        private void Move()
-        {
-            transform.position += (Vector3)(_velocity * Time.deltaTime);
+            transform.rotation = Quaternion.Euler(0, 0, rotationZ);
+            leftGroundChecker.SetDirection(direction);
+            leftGroundChecker.SetOffset(leftOffset);
+            rightGroundChecker.SetDirection(direction);
+            rightGroundChecker.SetOffset(rightOffset);
+            _isMovingHorizotal = !_isMovingHorizotal;
         }
     }
 }

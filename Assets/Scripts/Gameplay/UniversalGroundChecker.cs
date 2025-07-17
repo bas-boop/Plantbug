@@ -72,6 +72,18 @@ namespace Gameplay
             HandleStateTransitions();
         }
 
+        public void SetDirection(Vector3 targetDir)
+        {
+            direction3d = targetDir;
+            direction2d = targetDir;
+        }
+
+        public void SetOffset(Vector3 targetOffset)
+        {
+            offSet3D = targetOffset;
+            offSet2D = targetOffset;
+        }
+
         private void CalculateGroundRayCasting()
         {
             if (is3D)
@@ -127,11 +139,12 @@ namespace Gameplay
                 return;
 
             Vector3 origin = is3D ? _origin3D : _origin2D;
+            Vector3 dirctoin = is3D ? direction3d : direction2d;
             Gizmos.color = gizmosColor;
             
             if (lineOrSphere)
             {
-                Vector3 endPosition = origin + Vector3.down * rayCastLength;
+                Vector3 endPosition = origin + dirctoin * rayCastLength;
                 Gizmos.DrawLine(origin, endPosition);
             }
             else
