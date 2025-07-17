@@ -1,6 +1,6 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
+using Framework.Extensions;
 using Gameplay;
 
 namespace Player.Movement
@@ -22,17 +22,19 @@ namespace Player.Movement
             RIGHT
         }
         
+        private const float RANDOM_ANGLE = 0.7071068f;
+        
         [SerializeField] private UniversalGroundChecker groundChecker;
         [SerializeField] private UniversalGroundChecker leftWallChecker;
         [SerializeField] private UniversalGroundChecker rightWallChecker;
         [SerializeField] private UniversalGroundChecker leftGroundChecker;
         [SerializeField] private UniversalGroundChecker rightGroundChecker;
+        
         [SerializeField] private Rigidbody2D rigidbody2d;
         [SerializeField] private float speed = 3;
-        [SerializeField] private float delecerationForce = 2;
         [SerializeField] private float jumpForce = 5;
+        [SerializeField] private Vector2 ledgePlacement = Vector2.one;
 
-        [SerializeField] private bool _isMovingHorizotal = true;
         [SerializeField] private MoveState moveState;
         [SerializeField] private Ledge ledgeState;
         
@@ -52,8 +54,6 @@ namespace Player.Movement
 
         public void Jump()
         {
-            Debug.Log("jump");
-            
             if (moveState == MoveState.HORIZONTAL && groundChecker.IsGrounded)
             {
                 rigidbody2d.linearVelocityY = jumpForce;
@@ -63,9 +63,8 @@ namespace Player.Movement
                 return;
             }
 
-            Debug.Log(-_currentDirection.x * jumpForce);
             moveState = MoveState.VERTICAL_JUMP;
-            rigidbody2d.gravityScale = _isMovingHorizotal ? 1 : 0;
+            rigidbody2d.gravityScale = 1;
             rigidbody2d.linearVelocityX = -_currentDirection.x * jumpForce;
             
             ApplyWallTransition(
@@ -82,10 +81,11 @@ namespace Player.Movement
 
         public void WallAction()
         {
-            if (ledgeState == Ledge.NONE)
-                SwitchWall();
-            else
+            if (ledgeState != Ledge.NONE
+                && moveState == MoveState.VERTICAL)
                 PlaceOverLedge();
+            else
+                SwitchWall();
         }
         
         private void SwitchWall(bool skipHorizontal = false)
@@ -165,6 +165,7 @@ namespace Player.Movement
             leftGroundChecker.SetOffset(leftOffset);
             rightGroundChecker.SetDirection(direction);
             rightGroundChecker.SetOffset(rightOffset);
+            //groundChecker.SetDirection(direction);
             
             _currentDirection = direction;
         }
@@ -179,6 +180,20 @@ namespace Player.Movement
                     break;
                 
                 case MoveState.VERTICAL:
+                    if (!leftWallChecker.IsGrounded
+                        && !rightWallChecker.IsGrounded)
+                    {
+                        ApplyWallTransition(
+                            0f,
+                            Vector3.down,
+                            new Vector3(-0.5f, 0),
+                            new Vector3(0.5f, 0)
+                        );
+
+                        moveState = MoveState.HORIZONTAL;
+                        rigidbody2d.gravityScale = 1;
+                    }
+
                     rigidbody2d.linearVelocityY = _input.y * speed;
                     break;
                 
@@ -215,9 +230,13 @@ namespace Player.Movement
             if (moveState != MoveState.VERTICAL)
                 return;
             
-            if (!leftGroundChecker.IsGrounded)
+            Debug.Log(transform.rotation.z);
+            
+            if (!leftGroundChecker.IsGrounded
+                && Mathf.Approximately(transform.rotation.z, -RANDOM_ANGLE))
                 ledgeState = Ledge.LEFT;
-            else if (!rightGroundChecker.IsGrounded)
+            else if (!rightGroundChecker.IsGrounded
+                     && Mathf.Approximately(transform.rotation.z, RANDOM_ANGLE))
                 ledgeState = Ledge.RIGHT;
             else
                 ledgeState = Ledge.NONE;
@@ -231,11 +250,11 @@ namespace Player.Movement
             switch (ledgeState)
             {
                 case Ledge.LEFT:
-                    transform.position += new Vector3(-1, 1, 0);
+                    transform.position += (Vector3) ledgePlacement.InvertX();
                     break;
                 
                 case Ledge.RIGHT:
-                    transform.position += new Vector3(1, 1, 0);
+                    transform.position += (Vector3) ledgePlacement;
                     break;
             }
             
