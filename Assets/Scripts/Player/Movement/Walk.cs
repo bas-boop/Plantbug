@@ -15,6 +15,13 @@ namespace Player.Movement
             VERTICAL_JUMP
         }
         
+        private enum Ledge
+        {
+            NONE,
+            LEFT,
+            RIGHT
+        }
+        
         [SerializeField] private UniversalGroundChecker groundChecker;
         [SerializeField] private UniversalGroundChecker leftWallChecker;
         [SerializeField] private UniversalGroundChecker rightWallChecker;
@@ -27,42 +34,15 @@ namespace Player.Movement
 
         [SerializeField] private bool _isMovingHorizotal = true;
         [SerializeField] private MoveState moveState;
+        [SerializeField] private Ledge ledgeState;
+        
         private Vector2 _input;
         private Vector2 _currentDirection = Vector2.down;
 
         private void Update()
         {
-            switch (moveState)
-            {
-                case MoveState.HORIZONTAL:
-                    rigidbody2d.linearVelocityX = _input.x * speed;
-                    break;
-                case MoveState.VERTICAL:
-                    rigidbody2d.linearVelocityY = _input.y * speed;
-                    break;
-                case MoveState.HORIZONTAL_JUMP:
-                    if (groundChecker.IsGrounded)
-                        moveState = MoveState.HORIZONTAL;
-                    break;
-                case MoveState.VERTICAL_JUMP:
-                    if (leftWallChecker.IsGrounded
-                        && _currentDirection.x == 1)
-                    {
-                        SwitchWall(true);
-                        _currentDirection.x = -_currentDirection.x;
-                    }
-                    
-                    if (rightWallChecker.IsGrounded
-                        && _currentDirection.x == -1)
-                    {
-                        SwitchWall(true);
-                        _currentDirection.x = -_currentDirection.x;
-                    }
-                    
-                    if (groundChecker.IsGrounded)
-                        moveState = MoveState.HORIZONTAL;
-                    break;
-            }
+            UpdateMoveState();
+            CheckLedge();
         }
 
         public void SetInput(Vector2 input)
@@ -100,7 +80,15 @@ namespace Player.Movement
             Invoke(nameof(TurnOnGroundChecker), 0.2f);
         }
 
-        public void SwitchWall(bool skipHorizontal = false)
+        public void WallAction()
+        {
+            if (ledgeState == Ledge.NONE)
+                SwitchWall();
+            else
+                PlaceOverLedge();
+        }
+        
+        private void SwitchWall(bool skipHorizontal = false)
         {
             if (moveState == MoveState.VERTICAL_JUMP)
             {
@@ -181,6 +169,87 @@ namespace Player.Movement
             _currentDirection = direction;
         }
 
+        private void UpdateMoveState()
+        {
+            switch (moveState)
+            {
+                case MoveState.HORIZONTAL:
+                    rigidbody2d.linearVelocityX = _input.x * speed;
+                    ledgeState = Ledge.NONE;
+                    break;
+                
+                case MoveState.VERTICAL:
+                    rigidbody2d.linearVelocityY = _input.y * speed;
+                    break;
+                
+                case MoveState.HORIZONTAL_JUMP:
+                    if (groundChecker.IsGrounded)
+                        moveState = MoveState.HORIZONTAL;
+                
+                    ledgeState = Ledge.NONE;
+                    break;
+                
+                case MoveState.VERTICAL_JUMP:
+                    if (leftWallChecker.IsGrounded
+                        && _currentDirection.x == 1)
+                    {
+                        SwitchWall(true);
+                        _currentDirection.x = -_currentDirection.x;
+                    }
+                    
+                    if (rightWallChecker.IsGrounded
+                        && _currentDirection.x == -1)
+                    {
+                        SwitchWall(true);
+                        _currentDirection.x = -_currentDirection.x;
+                    }
+                    
+                    if (groundChecker.IsGrounded)
+                        moveState = MoveState.HORIZONTAL;
+                    break;
+            }
+        }
+
+        private void CheckLedge()
+        {
+            if (moveState != MoveState.VERTICAL)
+                return;
+            
+            if (!leftGroundChecker.IsGrounded)
+                ledgeState = Ledge.LEFT;
+            else if (!rightGroundChecker.IsGrounded)
+                ledgeState = Ledge.RIGHT;
+            else
+                ledgeState = Ledge.NONE;
+        }
+
+        private void PlaceOverLedge()
+        {
+            if (moveState != MoveState.VERTICAL)
+                return;
+            
+            switch (ledgeState)
+            {
+                case Ledge.LEFT:
+                    transform.position += new Vector3(-1, 1, 0);
+                    break;
+                
+                case Ledge.RIGHT:
+                    transform.position += new Vector3(1, 1, 0);
+                    break;
+            }
+            
+            ApplyWallTransition(
+                0f,
+                Vector3.down,
+                new Vector3(-0.5f, 0),
+                new Vector3(0.5f, 0)
+            );
+
+            moveState = MoveState.HORIZONTAL;
+            rigidbody2d.gravityScale = 1;
+        }
+        
         private void TurnOnGroundChecker()
         {
             groundChecker.enabled = true;

@@ -54,7 +54,7 @@ namespace Player
         #region Context
 
         private void JumpAction(InputAction.CallbackContext context) => walk.Jump(); // jump.DoJump();
-        private void WallClimbAction(InputAction.CallbackContext context) => walk.SwitchWall();
+        private void WallClimbAction(InputAction.CallbackContext context) => walk.WallAction();
         private void ShootAction(InputAction.CallbackContext context) => Debug.Log("Make shoot");
 
         #endregion
