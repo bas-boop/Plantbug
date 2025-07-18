@@ -24,6 +24,8 @@ namespace Gameplay
         [SerializeField] private Vector2 offSet2D;
         [SerializeField] private Vector3 offSet3D;
         [SerializeField] private Transform groundCheckerTransform;
+        [SerializeField] private Vector2 direction2d = Vector2.down;
+        [SerializeField] private Vector3 direction3d = Vector3.down;
         
         [Header("Debug")]
         [SerializeField] private bool isGrounded;
@@ -70,6 +72,18 @@ namespace Gameplay
             HandleStateTransitions();
         }
 
+        public void SetDirection(Vector3 targetDir)
+        {
+            direction3d = targetDir;
+            direction2d = targetDir;
+        }
+
+        public void SetOffset(Vector3 targetOffset)
+        {
+            offSet3D = targetOffset;
+            offSet2D = targetOffset;
+        }
+
         private void CalculateGroundRayCasting()
         {
             if (is3D)
@@ -89,9 +103,9 @@ namespace Gameplay
         {
             return lineOrSphere 
                 ? is3D
-                    ? Physics.RaycastAll(_origin3D, Vector3.down, rayCastLength, groundLayer)
+                    ? Physics.RaycastAll(_origin3D, direction3d, rayCastLength, groundLayer)
                         ?.Any(collider => collider.collider.gameObject != gameObject) ?? false
-                    : Physics2D.RaycastAll(_origin2D, Vector2.down, rayCastLength, groundLayer)
+                    : Physics2D.RaycastAll(_origin2D, direction2d, rayCastLength, groundLayer)
                         ?.Any(collider => collider.collider.gameObject != gameObject) ?? false
                 : is3D
                     ? Physics.OverlapSphere(_origin3D, sphereCastRadius, groundLayer)
@@ -125,11 +139,12 @@ namespace Gameplay
                 return;
 
             Vector3 origin = is3D ? _origin3D : _origin2D;
+            Vector3 dirctoin = is3D ? direction3d : direction2d;
             Gizmos.color = gizmosColor;
             
             if (lineOrSphere)
             {
-                Vector3 endPosition = origin + Vector3.down * rayCastLength;
+                Vector3 endPosition = origin + dirctoin * rayCastLength;
                 Gizmos.DrawLine(origin, endPosition);
             }
             else

@@ -1093,17 +1093,23 @@ namespace Framework.Extensions
         /// </summary>
         /// <param name="v">This Vector3.</param>
         /// <returns>The Vector3 with inverted axes.</returns>
-        public static ref Vector2 Invert(ref this Vector2 v) => ref v.InvertX().InvertY();
+        public static ref Vector2 Invert(ref this Vector2 v) => ref v.RefInvertX().InvertY();
         
         /// <summary>
         /// Invert the X axis of this Vector3.
         /// </summary>
         /// <param name="v">This Vector3.</param>
         /// <returns>The Vector3 with the inverted X axis.</returns>
-        public static ref Vector2 InvertX(ref this Vector2 v)
+        public static ref Vector2 RefInvertX(ref this Vector2 v)
         {
             v.x = -v.x;
             return ref v;
+        }
+        
+        public static Vector2 InvertX(this Vector2 v)
+        {
+            v.x = -v.x;
+            return v;
         }
 
         /// <summary>
