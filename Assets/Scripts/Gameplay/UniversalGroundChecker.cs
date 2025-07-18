@@ -102,7 +102,7 @@ namespace Gameplay
 
             if (IsGrounded)
                 IsCoyoteGrounded = true;
-            else
+            else if (coyoteTime > 0)
                 Invoke(nameof(TurnCoyoteFalse), coyoteTime);
         }
 
