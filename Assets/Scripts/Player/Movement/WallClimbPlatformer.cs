@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 using Framework.Extensions;
 using Gameplay;
@@ -33,6 +34,7 @@ namespace Player.Movement
         [SerializeField] private Rigidbody2D rigidbody2d;
         [SerializeField] private float speed = 3;
         [SerializeField] private float jumpForce = 5;
+        [SerializeField] private float gravityScale = 1;
         [SerializeField] private Vector2 ledgePlacement = Vector2.one;
 
         [SerializeField] private MoveState moveState;
@@ -40,6 +42,8 @@ namespace Player.Movement
         
         private Vector2 _input;
         private Vector2 _currentDirection = Vector2.down;
+
+        private void Awake() => rigidbody2d.gravityScale = gravityScale;
 
         private void Update()
         {
@@ -64,7 +68,7 @@ namespace Player.Movement
             }
 
             moveState = MoveState.VERTICAL_JUMP;
-            rigidbody2d.gravityScale = 1;
+            rigidbody2d.gravityScale = gravityScale;
             rigidbody2d.linearVelocityX = -_currentDirection.x * jumpForce;
             
             ApplyWallTransition(
@@ -150,7 +154,7 @@ namespace Player.Movement
                 moveState = MoveState.VERTICAL;
             }
 
-            rigidbody2d.gravityScale = moveState is MoveState.HORIZONTAL or MoveState.HORIZONTAL_JUMP ? 1 : 0;
+            rigidbody2d.gravityScale = moveState is MoveState.HORIZONTAL or MoveState.HORIZONTAL_JUMP ? gravityScale : 0;
         }
         
         private void ApplyWallTransition(
@@ -191,7 +195,7 @@ namespace Player.Movement
                         );
 
                         moveState = MoveState.HORIZONTAL;
-                        rigidbody2d.gravityScale = 1;
+                        rigidbody2d.gravityScale = gravityScale;
                     }
 
                     rigidbody2d.linearVelocityY = _input.y * speed;
@@ -264,7 +268,7 @@ namespace Player.Movement
             );
 
             moveState = MoveState.HORIZONTAL;
-            rigidbody2d.gravityScale = 1;
+            rigidbody2d.gravityScale = gravityScale;
         }
         
         private void TurnOnGroundChecker()
