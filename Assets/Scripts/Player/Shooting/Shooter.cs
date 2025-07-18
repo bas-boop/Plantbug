@@ -4,18 +4,18 @@ namespace Player.Shooting
 {
     public sealed class Shooter : MonoBehaviour
     {
-        [SerializeField] private GameObject projectile;
+        [SerializeField] private Projectile projectilePrefab;
         [SerializeField] private float maxAngleFromUp = 45f;
 
-        [SerializeField] private bool showGizmos;
+        [SerializeField] private bool showGizmos = true;
 
         public void Shoot(Vector2 mousePosition)
         {
             Vector2 direction = CalculateDirection(mousePosition);
 
-            Debug.Log($"Clamped Direction: {direction}");
-
-            
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
+            Quaternion rotation = Quaternion.Euler(0, 0, angle);
+            Instantiate(projectilePrefab, transform.position, rotation);
         }
 
         private Vector2 CalculateDirection(Vector2 mousePosition)
@@ -27,12 +27,11 @@ namespace Player.Shooting
 
             if (angle <= maxAngleFromUp)
                 return direction;
-            
-            float clampedAngle = maxAngleFromUp * sign;
-            float radians = clampedAngle * Mathf.Deg2Rad;
-            direction = new (Mathf.Sin(radians), Mathf.Cos(radians));
 
-            return direction;
+            float clampedAngle = maxAngleFromUp * sign;
+            direction = Quaternion.Euler(0, 0, clampedAngle) * transform.up;
+
+            return direction.normalized;
         }
         
         private void OnDrawGizmos()
