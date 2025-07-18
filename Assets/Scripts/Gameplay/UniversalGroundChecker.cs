@@ -21,6 +21,7 @@ namespace Gameplay
         [SerializeField] private LayerMask groundLayer;
         [SerializeField] private float rayCastLength = 1f;
         [SerializeField] private float sphereCastRadius = 1f;
+        [SerializeField] private float coyoteTime;
         [SerializeField] private Vector2 offSet2D;
         [SerializeField] private Vector3 offSet3D;
         [SerializeField] private Transform groundCheckerTransform;
@@ -55,6 +56,7 @@ namespace Gameplay
         #region Properties
 
         public bool IsGrounded { get => isGrounded; private set => isGrounded = value; }
+        public bool IsCoyoteGrounded { get => isGrounded; private set => isGrounded = value; }
 
         #endregion
         
@@ -97,6 +99,11 @@ namespace Gameplay
             
 
             IsGrounded = GetGround();
+
+            if (IsGrounded)
+                IsCoyoteGrounded = true;
+            else
+                Invoke(nameof(TurnCoyoteFalse), coyoteTime);
         }
 
         private bool GetGround()
@@ -113,6 +120,8 @@ namespace Gameplay
                     : Physics2D.OverlapCircleAll(_origin2D, sphereCastRadius, groundLayer)
                         ?.Any(collider => collider.gameObject != gameObject) ?? false;
         }
+
+        private void TurnCoyoteFalse() => IsCoyoteGrounded = false;
         
         private void HandleStateTransitions()
         {

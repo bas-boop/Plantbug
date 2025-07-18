@@ -54,7 +54,7 @@ namespace Player.Movement
 
         public void Jump()
         {
-            if (moveState == MoveState.HORIZONTAL && groundChecker.IsGrounded)
+            if (moveState == MoveState.HORIZONTAL && groundChecker.IsCoyoteGrounded)
             {
                 rigidbody2d.linearVelocityY = jumpForce;
                 moveState = MoveState.HORIZONTAL_JUMP;
