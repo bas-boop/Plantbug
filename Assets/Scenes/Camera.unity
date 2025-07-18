@@ -1209,6 +1209,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!1 &1783494261 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 949421023307039873, guid: 9c97a48efc8b0de4b9bd724bd99a1ca9, type: 3}
+  m_PrefabInstance: {fileID: 2747323647249804842}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1935222616 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2606471751239423413, guid: f580fdf2de11218419a95705b9961ee5, type: 3}
@@ -1828,6 +1833,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 1911603123254970483, guid: 9c97a48efc8b0de4b9bd724bd99a1ca9, type: 3}
+      propertyPath: shooter
+      value: 
+      objectReference: {fileID: 2747323647249804851}
     - target: {fileID: 5847506577065970672, guid: 9c97a48efc8b0de4b9bd724bd99a1ca9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1871,13 +1880,30 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 949421023307039873, guid: 9c97a48efc8b0de4b9bd724bd99a1ca9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2747323647249804851}
   m_SourcePrefab: {fileID: 100100000, guid: 9c97a48efc8b0de4b9bd724bd99a1ca9, type: 3}
 --- !u!4 &2747323647249804843 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5847506577065970672, guid: 9c97a48efc8b0de4b9bd724bd99a1ca9, type: 3}
   m_PrefabInstance: {fileID: 2747323647249804842}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2747323647249804851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1783494261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f99309a807e048a4865fe8d269cb85dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectile: {fileID: 0}
+  maxAngleFromUp: 60
 --- !u!1001 &5441998242529574173
 PrefabInstance:
   m_ObjectHideFlags: 0
