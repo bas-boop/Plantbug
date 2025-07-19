@@ -52,6 +52,7 @@ MonoBehaviour:
     m_Bits: 8
   rayCastLength: 1
   sphereCastRadius: 1
+  coyoteTime: 0
   offSet2D: {x: 0.5, y: 0}
   offSet3D: {x: 0, y: 0, z: 0}
   groundCheckerTransform: {fileID: 6417678023511251401}
@@ -316,14 +317,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   is3D: 0
-  lineOrSphere: 1
+  lineOrSphere: 0
   offSetOrTransform: 0
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
   rayCastLength: 0.6
-  sphereCastRadius: 1
-  offSet2D: {x: 0, y: 0}
+  sphereCastRadius: 0.5
+  coyoteTime: 0.5
+  offSet2D: {x: 0, y: -0.3}
   offSet3D: {x: 0, y: 0, z: 0}
   groundCheckerTransform: {fileID: 0}
   direction2d: {x: 0, y: -1}
@@ -476,6 +478,7 @@ MonoBehaviour:
     m_Bits: 8
   rayCastLength: 0.6
   sphereCastRadius: 1
+  coyoteTime: 0
   offSet2D: {x: 0, y: 0}
   offSet3D: {x: 0, y: 0, z: 0}
   groundCheckerTransform: {fileID: 3524839531492362914}
@@ -542,6 +545,7 @@ MonoBehaviour:
     m_Bits: 8
   rayCastLength: 0.6
   sphereCastRadius: 1
+  coyoteTime: 0
   offSet2D: {x: 0, y: 0}
   offSet3D: {x: 0, y: 0, z: 0}
   groundCheckerTransform: {fileID: 1652284572718477884}
@@ -608,6 +612,7 @@ MonoBehaviour:
     m_Bits: 8
   rayCastLength: 1
   sphereCastRadius: 1
+  coyoteTime: 0
   offSet2D: {x: -0.5, y: 0}
   offSet3D: {x: 0, y: 0, z: 0}
   groundCheckerTransform: {fileID: 0}
