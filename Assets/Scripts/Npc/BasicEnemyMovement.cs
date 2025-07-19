@@ -4,7 +4,7 @@ using Framework.Extensions;
 
 namespace Npc
 {
-    public sealed class BasicEnemyMovement : MonoBehaviour
+    public class BasicEnemyMovement : MonoBehaviour
     {
         [Header("Stats")]
         [SerializeField] private float speed = 2;
@@ -15,12 +15,27 @@ namespace Npc
         [SerializeField] private float dotSize = 0.1f;
 
         private Vector3 _startPos;
-        
-        private void Start() => _startPos = transform.position;
+        private float _localTimer;
+        private bool _isWalking = true;
 
-        private void FixedUpdate()
+        protected virtual void Start() => SetStartPosition();
+
+        protected virtual void FixedUpdate()
         {
-            float pingPong = Mathf.PingPong(Time.time * speed, moveRange);
+            if (!_isWalking)
+                return;
+            
+            _localTimer += Time.fixedDeltaTime;
+            Move(_localTimer);
+        }
+        
+        protected void SetWalking(bool walking) => _isWalking = walking;
+
+        private void SetStartPosition() => _startPos = transform.position;
+
+        private void Move(float time)
+        {
+            float pingPong = Mathf.PingPong(time * speed, moveRange);
             Vector3 newPosition = _startPos + Vector3.right * pingPong;
             transform.position = newPosition;
         }

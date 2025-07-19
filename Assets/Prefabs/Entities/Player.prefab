@@ -354,8 +354,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f99309a807e048a4865fe8d269cb85dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 6314097469348641298, guid: 89bef8ad14be75c4690b5295e68a334a, type: 3}
-  maxAngleFromUp: 60
+  projectilePrefab: {fileID: 7620220009555699410, guid: 89bef8ad14be75c4690b5295e68a334a, type: 3}
+  maxAngleFromUp: 90
   showGizmos: 1
 --- !u!1 &1719412609866551979
 GameObject:
