@@ -45,6 +45,13 @@ namespace Framework
             }
         }
 
+        public void ReloadCurrentScene()
+        {
+            Scene s = SceneManager.GetActiveScene();
+            Debug.Log(s.name);
+            SceneManager.LoadScene(s.name);
+        }
+
         /// <summary>
         /// Set the sceneToLoad property to a new scene, if this succeeds it will load it asynchronously. Otherwise it will give an error.
         /// </summary>
