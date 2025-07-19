@@ -22,13 +22,23 @@ public class CreditsMoveUp : MonoBehaviour
 
     private bool isGlitching = false;
     private bool glitchIsReset = false;
+
+    public bool realCredits = false;
     private void Start()
     {
         if (CreditsMusic != null)
         {
             CreditsMusic.Play();
         }
-        LeanTween.delayedCall(1f, MoveUp);
+
+        if (!realCredits)
+        {
+            LeanTween.delayedCall(1f, MoveUp);
+        }
+        else
+        {
+            MoveUpRegular();
+        }
     }
 
     private void Update()
@@ -116,5 +126,13 @@ public class CreditsMoveUp : MonoBehaviour
             transform.localPosition = orgPos;
         });
 
+    }
+
+    private void MoveUpRegular()
+    {
+        LeanTween.moveLocalY(gameObject, endPositionY, moveUpDuration).setOnComplete(() =>
+        {
+            orgPos = transform.localPosition;
+        });
     }
 }
