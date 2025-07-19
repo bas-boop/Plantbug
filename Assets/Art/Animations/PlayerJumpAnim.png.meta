@@ -1,58 +1,46 @@
 fileFormatVersion: 2
-guid: c7a9358efd59bfa47a7b6dfebb9540f7
+guid: bc6e738ecf6203a42afe73c86a194078
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8956683390576427122
-    second: PlayerLegs_spritsheet_0
+      213: -6443302517018371039
+    second: PlayerJumpAnim_0
   - first:
-      213: -1323873409893739165
-    second: PlayerLegs_spritsheet_1
+      213: -6848478145690043225
+    second: PlayerJumpAnim_1
   - first:
-      213: -8920359215056148538
-    second: PlayerLegs_spritsheet_2
+      213: -3851241647135428070
+    second: PlayerJumpAnim_2
   - first:
-      213: -5137334813359650530
-    second: PlayerLegs_spritsheet_3
+      213: -4598740901846291504
+    second: PlayerJumpAnim_3
   - first:
-      213: -3640798374501187392
-    second: PlayerLegs_spritsheet_4
+      213: -6442199845478369146
+    second: PlayerJumpAnim_4
   - first:
-      213: -2267155278750926925
-    second: PlayerLegs_spritsheet_5
+      213: 3686933602806741957
+    second: PlayerJumpAnim_5
   - first:
-      213: -4786941149672916176
-    second: PlayerLegs_spritsheet_6
+      213: 1810157101125849555
+    second: PlayerJumpAnim_6
   - first:
-      213: -6500750045412653817
-    second: PlayerLegs_spritsheet_7
+      213: -5869421143175374049
+    second: PlayerJumpAnim_7
   - first:
-      213: -2904127661237363837
-    second: PlayerLegs_spritsheet_8
+      213: -7896200599473000148
+    second: PlayerJumpAnim_8
   - first:
-      213: 3785272492682316784
-    second: PlayerLegs_spritsheet_9
+      213: 8759960726584571947
+    second: PlayerJumpAnim_9
   - first:
-      213: -4728390525073279285
-    second: PlayerLegs_spritsheet_10
+      213: 3201866425974204516
+    second: PlayerJumpAnim_10
   - first:
-      213: 753895187374116969
-    second: PlayerLegs_spritsheet_11
+      213: -5345150399760380003
+    second: PlayerJumpAnim_11
   - first:
-      213: -866312712652789377
-    second: PlayerLegs_spritsheet_12
-  - first:
-      213: -967981317299006979
-    second: PlayerLegs_spritsheet_13
-  - first:
-      213: -1568535804527077659
-    second: PlayerLegs_spritsheet_14
-  - first:
-      213: -4000729606703972631
-    second: PlayerLegs_spritsheet_15
-  - first:
-      213: -6972190959885007393
-    second: PlayerLegs_spritsheet_16
+      213: -3101122623976453039
+    second: PlayerJumpAnim_12
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -148,7 +136,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PlayerLegs_spritsheet_0
+      name: PlayerJumpAnim_0
       rect:
         serializedVersion: 2
         x: 0
@@ -163,14 +151,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: da1a0d3b0bfa705449deecd371b8b2d9
-      internalID: -1900416918
+      spriteID: a3fd57b124004b34a9aa2e2c5ad4d282
+      internalID: -396746809
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerLegs_spritsheet_1
+      name: PlayerJumpAnim_1
       rect:
         serializedVersion: 2
         x: 877
@@ -185,14 +173,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1d6d35f8acd64824094cebe254417c43
-      internalID: 451321210
+      spriteID: bf2baacccd65b0e4abda0544ba7a7d2e
+      internalID: 399403698
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerLegs_spritsheet_2
+      name: PlayerJumpAnim_2
       rect:
         serializedVersion: 2
         x: 1754
@@ -207,30 +195,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 40cfe68ea5e081b4a897ff5a2961e35b
-      internalID: 2117310718
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PlayerLegs_spritsheet_3
-      rect:
-        serializedVersion: 2
-        x: 2631
-        y: 0
-        width: 877
-        height: 881
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 06ed2300ce084b149bc06ebe151d2cb3
-      internalID: 1686442032
+      spriteID: e6a12232d8f3ced4794e25bd41d005f6
+      internalID: 849501884
       vertices: []
       indices: 
       edges: []
@@ -239,7 +205,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: bd4b64fdbd208b54898fdfcb89c9faab
+    spriteID: 2348626858f09fb40a7bb1229600fcd3
     internalID: 0
     vertices: []
     indices: 
@@ -249,10 +215,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      PlayerLegs_spritsheet_0: -1900416918
-      PlayerLegs_spritsheet_1: 451321210
-      PlayerLegs_spritsheet_2: 2117310718
-      PlayerLegs_spritsheet_3: 1686442032
+      PlayerJumpAnim_0: -396746809
+      PlayerJumpAnim_1: 399403698
+      PlayerJumpAnim_2: 849501884
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

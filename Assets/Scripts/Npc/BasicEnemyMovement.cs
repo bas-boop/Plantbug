@@ -1,7 +1,5 @@
 ﻿using UnityEngine;
 
-using Framework.Extensions;
-
 namespace Npc
 {
     public class BasicEnemyMovement : MonoBehaviour
@@ -42,12 +40,12 @@ namespace Npc
 
         private void OnDrawGizmos()
         {
-            Vector3 to = transform.position;
-            to.AddX(moveRange);
-            
+            Vector3 from = Application.isPlaying ? _startPos : transform.position;
+            Vector3 to = from + Vector3.right * moveRange;
+
             Gizmos.color = gizmosColor;
-            Gizmos.DrawLine(transform.position, to);
-            Gizmos.DrawSphere(transform.position, dotSize);
+            Gizmos.DrawLine(from, to);
+            Gizmos.DrawSphere(from, dotSize);
             Gizmos.DrawSphere(to, dotSize);
         }
     }
