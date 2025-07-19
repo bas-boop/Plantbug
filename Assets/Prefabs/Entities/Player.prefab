@@ -83,6 +83,7 @@ GameObject:
   - component: {fileID: 1911603123254970483}
   - component: {fileID: 4887258270118307978}
   - component: {fileID: 5048428993827739295}
+  - component: {fileID: 2577393753145728937}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -281,6 +282,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wallClimbPlatformer: {fileID: 4887258270118307978}
+  shooter: {fileID: 2577393753145728937}
 --- !u!114 &4887258270118307978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -301,6 +303,7 @@ MonoBehaviour:
   rigidbody2d: {fileID: 8308590221197421782}
   speed: 3
   jumpForce: 5
+  gravityScale: 1
   ledgePlacement: {x: 1, y: 1}
   moveState: 0
   ledgeState: 0
@@ -339,6 +342,21 @@ MonoBehaviour:
   onGroundLeave:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2577393753145728937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 949421023307039873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f99309a807e048a4865fe8d269cb85dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectile: {fileID: 6314097469348641298, guid: 89bef8ad14be75c4690b5295e68a334a, type: 3}
+  maxAngleFromUp: 60
+  showGizmos: 1
 --- !u!1 &1719412609866551979
 GameObject:
   m_ObjectHideFlags: 0

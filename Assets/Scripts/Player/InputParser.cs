@@ -2,6 +2,7 @@
 using UnityEngine.InputSystem;
 
 using Player.Movement;
+using Player.Shooting;
 
 namespace Player
 {
@@ -10,6 +11,7 @@ namespace Player
     public sealed class InputParser : MonoBehaviour
     {
         [SerializeField] private WallClimbPlatformer wallClimbPlatformer;
+        [SerializeField] private Shooter shooter;
         
         private PlayerInput _playerInput;
         private InputActionAsset _inputActionAsset;
@@ -55,7 +57,12 @@ namespace Player
 
         private void JumpAction(InputAction.CallbackContext context) => wallClimbPlatformer.Jump();
         private void WallClimbAction(InputAction.CallbackContext context) => wallClimbPlatformer.WallAction();
-        private void ShootAction(InputAction.CallbackContext context) => Debug.Log("Make shoot");
+        private void ShootAction(InputAction.CallbackContext context)
+        {
+            Vector2 mousePos = _inputActionAsset["MousePosition"].ReadValue<Vector2>();
+            Vector2 mouseWorldPos = Camera.main.ScreenToWorldPoint(new Vector2(mousePos.x, mousePos.y));
+            shooter.Shoot(mouseWorldPos);
+        }
 
         #endregion
     }
