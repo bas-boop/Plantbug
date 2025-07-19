@@ -250,7 +250,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 17.16, y: 2.32, z: -10}
+  m_LocalPosition: {x: 17.3, y: 1.2, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1558,13 +1558,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2577393753145728937, guid: 9c97a48efc8b0de4b9bd724bd99a1ca9, type: 3}
+      propertyPath: maxAngleFromUp
+      value: 90
+      objectReference: {fileID: 0}
     - target: {fileID: 5847506577065970672, guid: 9c97a48efc8b0de4b9bd724bd99a1ca9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 1.48
       objectReference: {fileID: 0}
     - target: {fileID: 5847506577065970672, guid: 9c97a48efc8b0de4b9bd724bd99a1ca9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.5
+      value: -0.2
       objectReference: {fileID: 0}
     - target: {fileID: 5847506577065970672, guid: 9c97a48efc8b0de4b9bd724bd99a1ca9, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1611,6 +1615,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3395608570403933570, guid: c4364b46503348b47a1b34905c0abd6c, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 4334432717207842171, guid: c4364b46503348b47a1b34905c0abd6c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8.94
@@ -1665,8 +1673,8 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 519420032}
-  - {fileID: 619394802}
   - {fileID: 2747323647249804842}
+  - {fileID: 619394802}
   - {fileID: 2093394611}
   - {fileID: 791015249}
   - {fileID: 1305185250}

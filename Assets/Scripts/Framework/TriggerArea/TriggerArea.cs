@@ -18,8 +18,8 @@ namespace Framework.TriggerArea
         [SerializeField] private bool isOneTimeUse;
 
         [Space(20)]
-        [SerializeField] private UnityEvent onEnter = new();
-        [SerializeField] private UnityEvent onExit = new();
+        [SerializeField] private UnityEvent<GameObject> onEnter = new();
+        [SerializeField] private UnityEvent<GameObject> onExit = new();
 
         private BoxCollider2D _boxCollider;
         private CircleCollider2D _circleCollider;
@@ -48,7 +48,7 @@ namespace Framework.TriggerArea
                 return;
 
             _isTriggered = true;
-            onEnter?.Invoke();
+            onEnter?.Invoke(other.gameObject);
         }
 
         private void OnTriggerExit2D(Collider2D other)
@@ -59,7 +59,7 @@ namespace Framework.TriggerArea
                 return;
 
             _isTriggered = true;
-            onExit?.Invoke();
+            onExit?.Invoke(other.gameObject);
         }
 
         private void OnValidate() => UpdateVisuals();
