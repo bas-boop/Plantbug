@@ -10,6 +10,11 @@ public class CreditsMoveUp : MonoBehaviour
     [Header("Glitch Settings")]
     [SerializeField] private float glitchAmount;
     [SerializeField] private float glitchDuration;
+
+    [Space(20)]
+    [SerializeField] private AudioSource AudioSource1;
+    [SerializeField] private AudioSource AudioSource2;
+    [SerializeField] private AudioSource CreditsMusic;
     
     private Vector3 orgPos;
 
@@ -19,6 +24,10 @@ public class CreditsMoveUp : MonoBehaviour
     private bool glitchIsReset = false;
     private void Start()
     {
+        if (CreditsMusic != null)
+        {
+            CreditsMusic.Play();
+        }
         LeanTween.delayedCall(1f, MoveUp);
     }
 
@@ -49,12 +58,20 @@ public class CreditsMoveUp : MonoBehaviour
 
     private void MiniGlitchCredits()
     {
+        if (CreditsMusic != null)
+        {
+            CreditsMusic.Pause();
+        }
+        
         LeanTween.value(gameObject, 0, glitchAmount, .05f).setOnUpdate((float val) =>
         {
             float x = Random.Range(0, glitchAmount);
             float y = Random.Range(0, glitchAmount);
 
             transform.localPosition = orgPos + new Vector3(x, y, 0f);
+
+            if (AudioSource1 != null)
+                AudioSource1.Play();
         })
             .setOnComplete(() =>
             {
@@ -65,6 +82,10 @@ public class CreditsMoveUp : MonoBehaviour
 
     private void MoveUp2()
     {
+                if (CreditsMusic != null)
+                {
+                    CreditsMusic.UnPause();
+                }
         LeanTween.moveLocalY(gameObject, endPositionY, moveUpDuration).setOnComplete(() =>
         {
             orgPos = transform.localPosition;
@@ -76,7 +97,11 @@ public class CreditsMoveUp : MonoBehaviour
     {
         timer = 0;
         isGlitching = true;
+        if (CreditsMusic != null)
+            CreditsMusic.Stop();
 
+        if(AudioSource2 != null)
+            AudioSource2.Play();
 
         LeanTween.value(gameObject, 0, glitchAmount, glitchDuration).setOnUpdate((float val) =>
         {
