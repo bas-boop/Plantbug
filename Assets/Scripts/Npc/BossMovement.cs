@@ -4,6 +4,8 @@ namespace Npc
 {
     public class BossMovement : BasicEnemyMovement
     {
+        [Header("Boss stats")]
+        [SerializeField] private BossMeleeAttack attack;
         [SerializeField] private Vector2 randomIdleTime = new(1, 4);
         [SerializeField] private Vector2 randomTimeWalkFor = new(3, 5);
 
@@ -31,6 +33,7 @@ namespace Npc
             _isWalking = false;
             SetWalking(false);
             _walkTimer = 0;
+            attack.Attack();
             Invoke(nameof(StartWalking), Random.Range(randomIdleTime.x, randomIdleTime.y));
         }
 
