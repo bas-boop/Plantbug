@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Framework;
+using UnityEngine;
 using UnityEngine.InputSystem;
 
 using Player.Movement;
@@ -12,6 +13,7 @@ namespace Player
     {
         [SerializeField] private WallClimbPlatformer wallClimbPlatformer;
         [SerializeField] private Shooter shooter;
+        [SerializeField] private PlayerUnstucker playerUnstucker;
         
         private PlayerInput _playerInput;
         private InputActionAsset _inputActionAsset;
@@ -44,6 +46,7 @@ namespace Player
             _inputActionAsset["Jump"].performed += JumpAction;
             _inputActionAsset["WallClimb"].performed += WallClimbAction;
             _inputActionAsset["Shoot"].performed += ShootAction;
+            _inputActionAsset["Unstuck"].performed += Unstuck;
         }
 
         private void RemoveListeners()
@@ -51,6 +54,7 @@ namespace Player
             _inputActionAsset["Jump"].performed -= JumpAction;
             _inputActionAsset["WallClimb"].performed -= WallClimbAction;
             _inputActionAsset["Shoot"].performed -= ShootAction;
+            _inputActionAsset["Unstuck"].performed -= Unstuck;
         }
         
         #region Context
@@ -62,6 +66,11 @@ namespace Player
             Vector2 mousePos = _inputActionAsset["MousePosition"].ReadValue<Vector2>();
             Vector2 mouseWorldPos = Camera.main.ScreenToWorldPoint(new Vector2(mousePos.x, mousePos.y));
             shooter.Shoot(mouseWorldPos);
+        }
+        private void Unstuck(InputAction.CallbackContext context)
+        {
+            if (playerUnstucker != null)
+                playerUnstucker.Unstuck();
         }
 
         #endregion

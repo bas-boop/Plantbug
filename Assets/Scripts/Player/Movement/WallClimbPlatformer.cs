@@ -293,8 +293,8 @@ namespace Player.Movement
         {
             if (moveState is MoveState.HORIZONTAL_JUMP or MoveState.VERTICAL_JUMP)
                 legsAnimationController.PlayAnimation("Jump");
-            else if (_input != Vector2.zero)
-                legsAnimationController.PlayAnimation("Moving");
+            else
+                legsAnimationController.PlayAnimation("Moving", _input != Vector2.zero);
             
             if (moveState == MoveState.HORIZONTAL)
             {
