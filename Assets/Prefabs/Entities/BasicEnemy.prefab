@@ -62,6 +62,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HealthTriggerArea Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 4028255481859024787, guid: decdf810422783d4f8830ff7c97589c4, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 4266255760918664667, guid: decdf810422783d4f8830ff7c97589c4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

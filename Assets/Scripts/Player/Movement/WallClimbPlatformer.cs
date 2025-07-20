@@ -67,20 +67,23 @@ namespace Player.Movement
                 return;
             }
 
-            moveState = MoveState.VERTICAL_JUMP;
-            rigidbody2d.gravityScale = gravityScale;
-            rigidbody2d.linearVelocityX = -_currentDirection.x * jumpForce;
-            
-            ApplyWallTransition(
-                0f,
-                Vector3.down,
-                new Vector3(-0.5f, 0),
-                new Vector3(0.5f, 0)
-            );
-            
-            leftWallChecker.enabled = false;
-            rightWallChecker.enabled = false;
-            Invoke(nameof(TurnOnGroundChecker), 0.2f);
+            if (moveState == MoveState.VERTICAL)
+            {
+                moveState = MoveState.VERTICAL_JUMP;
+                rigidbody2d.gravityScale = gravityScale;
+                rigidbody2d.linearVelocityX = -_currentDirection.x * jumpForce;
+
+                ApplyWallTransition(
+                    0f,
+                    Vector3.down,
+                    new Vector3(-0.5f, 0),
+                    new Vector3(0.5f, 0)
+                );
+
+                leftWallChecker.enabled = false;
+                rightWallChecker.enabled = false;
+                Invoke(nameof(TurnOnGroundChecker), 0.2f);
+            }
         }
 
         public void WallAction()
@@ -209,6 +212,8 @@ namespace Player.Movement
                     break;
                 
                 case MoveState.VERTICAL_JUMP:
+                    Debug.Log("wall jump");
+                    
                     if (leftWallChecker.IsGrounded
                         && _currentDirection.x == 1)
                     {
