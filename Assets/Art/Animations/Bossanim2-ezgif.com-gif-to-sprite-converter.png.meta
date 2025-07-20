@@ -1,0 +1,346 @@
+fileFormatVersion: 2
+guid: c5726cd9dd4026d408df7fc867bce2a5
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1812457499259435619
+    second: Bossanim2-ezgif.com-gif-to-sprite-converter_0
+  - first:
+      213: -7172548084984178374
+    second: Bossanim2-ezgif.com-gif-to-sprite-converter_1
+  - first:
+      213: 4205492947332331096
+    second: Bossanim2-ezgif.com-gif-to-sprite-converter_2
+  - first:
+      213: 7157014829508518160
+    second: Bossanim2-ezgif.com-gif-to-sprite-converter_3
+  - first:
+      213: 6278980771794655479
+    second: Bossanim2-ezgif.com-gif-to-sprite-converter_4
+  - first:
+      213: 213122855863348786
+    second: Bossanim2-ezgif.com-gif-to-sprite-converter_5
+  - first:
+      213: 3760292522737401068
+    second: Bossanim2-ezgif.com-gif-to-sprite-converter_6
+  - first:
+      213: -7586864980591560163
+    second: Bossanim2-ezgif.com-gif-to-sprite-converter_7
+  - first:
+      213: 4817084291998160757
+    second: Bossanim2-ezgif.com-gif-to-sprite-converter_8
+  - first:
+      213: 1635248285106627377
+    second: Bossanim2-ezgif.com-gif-to-sprite-converter_9
+  - first:
+      213: 7002463854405330946
+    second: Bossanim2-ezgif.com-gif-to-sprite-converter_10
+  - first:
+      213: 4340444304760309037
+    second: Bossanim2-ezgif.com-gif-to-sprite-converter_11
+  - first:
+      213: 7785394836080117634
+    second: Bossanim2-ezgif.com-gif-to-sprite-converter_12
+  - first:
+      213: -404534478379686335
+    second: Bossanim2-ezgif.com-gif-to-sprite-converter_13
+  - first:
+      213: 2103847118230254272
+    second: Bossanim2-ezgif.com-gif-to-sprite-converter_14
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Bossanim2-ezgif.com-gif-to-sprite-converter_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1064
+        width: 1100
+        height: 1064
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca5eb649e8b29bc45a515e08cfd5f889
+      internalID: 1961663775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bossanim2-ezgif.com-gif-to-sprite-converter_1
+      rect:
+        serializedVersion: 2
+        x: 1100
+        y: 1064
+        width: 1100
+        height: 1064
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b12cba25851de7f4eb28f0b2f07ad6fd
+      internalID: -2119487698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bossanim2-ezgif.com-gif-to-sprite-converter_2
+      rect:
+        serializedVersion: 2
+        x: 2200
+        y: 1064
+        width: 1100
+        height: 1064
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81382c2abef26f44d91e90d988f164c9
+      internalID: -980945622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bossanim2-ezgif.com-gif-to-sprite-converter_3
+      rect:
+        serializedVersion: 2
+        x: 3300
+        y: 1064
+        width: 1100
+        height: 1064
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5cafaf05029bca44db29d2752703cfba
+      internalID: 2055335330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bossanim2-ezgif.com-gif-to-sprite-converter_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1100
+        height: 1064
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0e8ec361240c1d458a6d28d374f0c61
+      internalID: 738510464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bossanim2-ezgif.com-gif-to-sprite-converter_5
+      rect:
+        serializedVersion: 2
+        x: 1100
+        y: 0
+        width: 1100
+        height: 1064
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5e8e68ceb6e5d54d872ea495d8628cf
+      internalID: 3129611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bossanim2-ezgif.com-gif-to-sprite-converter_6
+      rect:
+        serializedVersion: 2
+        x: 2200
+        y: 0
+        width: 1100
+        height: 1064
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3f99e7fb1b34e843aac65e0ec83c95c
+      internalID: -102429380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bossanim2-ezgif.com-gif-to-sprite-converter_7
+      rect:
+        serializedVersion: 2
+        x: 3300
+        y: 0
+        width: 1100
+        height: 1064
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abe818631740adc4482f88a2aff16816
+      internalID: 1855356349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: c3f4637aa436cee4098863351d736c50
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Bossanim2-ezgif.com-gif-to-sprite-converter_0: 1961663775
+      Bossanim2-ezgif.com-gif-to-sprite-converter_1: -2119487698
+      Bossanim2-ezgif.com-gif-to-sprite-converter_2: -980945622
+      Bossanim2-ezgif.com-gif-to-sprite-converter_3: 2055335330
+      Bossanim2-ezgif.com-gif-to-sprite-converter_4: 738510464
+      Bossanim2-ezgif.com-gif-to-sprite-converter_5: 3129611
+      Bossanim2-ezgif.com-gif-to-sprite-converter_6: -102429380
+      Bossanim2-ezgif.com-gif-to-sprite-converter_7: 1855356349
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

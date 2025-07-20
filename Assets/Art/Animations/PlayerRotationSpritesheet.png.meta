@@ -127,8 +127,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 874ef7e2e56a0244696ddfc6f8de51fb
-      internalID: 740782775
+      spriteID: 3f1a39091b87caa46ae29ad0d3f93e5a
+      internalID: -669620011
       vertices: []
       indices: 
       edges: []
@@ -149,8 +149,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9841619aa244f904297f02f32cdab492
-      internalID: 1111211663
+      spriteID: 633df801c378058428b19feb7dc6f234
+      internalID: -275573009
       vertices: []
       indices: 
       edges: []
@@ -171,8 +171,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 86d66181eedf2364781cc730d0cf6f3c
-      internalID: -1232220584
+      spriteID: 4b7819319e89f994e97e0d390f4bd8c7
+      internalID: -275716997
       vertices: []
       indices: 
       edges: []
@@ -181,7 +181,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 1f9cf12fadc384243b8d3fa010890cc3
+    spriteID: 4514da31c73c52449a8c8931cf3e7ae4
     internalID: 0
     vertices: []
     indices: 
@@ -191,9 +191,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      PlayerRotationSpritesheet_0: 740782775
-      PlayerRotationSpritesheet_1: 1111211663
-      PlayerRotationSpritesheet_2: -1232220584
+      PlayerRotationSpritesheet_0: -669620011
+      PlayerRotationSpritesheet_1: -275573009
+      PlayerRotationSpritesheet_2: -275716997
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
