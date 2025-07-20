@@ -10,11 +10,11 @@ namespace Gameplay
         [SerializeField] private UnityEvent onTakeDamage = new();
         [SerializeField] private UnityEvent onDie = new();
         [SerializeField] private UnityEvent onHeal = new();
-        [SerializeField] private UnityEvent onResurrect = new(); 
+        [SerializeField] private UnityEvent onResurrect = new();
 
-        private int _currentHealth;
+        public int CurrentHealth { get; private set; }
 
-        private void Awake() => _currentHealth = health;
+        private void Awake() => CurrentHealth = health;
 
         /// <summary>
         /// This object will take damage by the given amount. Will invoke the onTakeDamage event.
@@ -23,13 +23,13 @@ namespace Gameplay
         /// <param name="damage">Amount of damage to take.</param>
         public void TakeDamage(int damage)
         {
-            if (_currentHealth <= 0)
+            if (CurrentHealth <= 0)
                 return;
 
-            _currentHealth -= damage;
+            CurrentHealth -= damage;
             onTakeDamage?.Invoke();
             
-            if (_currentHealth <= 0)
+            if (CurrentHealth <= 0)
                 Die();
         }
 
@@ -39,14 +39,14 @@ namespace Gameplay
         /// <param name="amountToHeal"></param>
         public void Heal(int amountToHeal)
         {
-            if (_currentHealth <= 0)
+            if (CurrentHealth <= 0)
                 return;
 
-            _currentHealth += amountToHeal;
+            CurrentHealth += amountToHeal;
             onHeal?.Invoke();
 
-            if (_currentHealth > health)
-                _currentHealth = health;
+            if (CurrentHealth > health)
+                CurrentHealth = health;
         }
 
         /// <summary>
@@ -55,16 +55,18 @@ namespace Gameplay
         /// <param name="targetHealth"></param>
         public void Resurrect(int? targetHealth)
         {
-            if (_currentHealth > 0)
+            if (CurrentHealth > 0)
                 return;
             
-            _currentHealth = targetHealth ?? health;
+            CurrentHealth = targetHealth ?? health;
             onResurrect?.Invoke();
         }
 
+        public int GetStartHealth() => health;
+
         private void Die()
         {
-            _currentHealth = 0;
+            CurrentHealth = 0;
             onDie?.Invoke();
         }
     }
