@@ -1,4 +1,5 @@
 ﻿using System;
+using Framework.Animation;
 using UnityEngine;
 
 using Framework.Extensions;
@@ -30,6 +31,8 @@ namespace Player.Movement
         [SerializeField] private UniversalGroundChecker rightWallChecker;
         [SerializeField] private UniversalGroundChecker leftGroundChecker;
         [SerializeField] private UniversalGroundChecker rightGroundChecker;
+        [SerializeField] private SpriteChanger headSpriteChanger;
+        [SerializeField] private AnimationController legsAnimationController;
         
         [SerializeField] private Rigidbody2D rigidbody2d;
         [SerializeField] private float speed = 3;
@@ -49,6 +52,7 @@ namespace Player.Movement
         {
             UpdateMoveState();
             CheckLedge();
+            UpdateAnimations();
         }
 
         public void SetInput(Vector2 input)
@@ -64,6 +68,7 @@ namespace Player.Movement
                 moveState = MoveState.HORIZONTAL_JUMP;
                 groundChecker.enabled = false;
                 Invoke(nameof(TurnOnGroundChecker), 0.2f);
+                legsAnimationController.PlayAnimation("Jump");
                 return;
             }
 
@@ -83,6 +88,7 @@ namespace Player.Movement
                 leftWallChecker.enabled = false;
                 rightWallChecker.enabled = false;
                 Invoke(nameof(TurnOnGroundChecker), 0.2f);
+                legsAnimationController.PlayAnimation("Jump");
             }
         }
 
@@ -281,6 +287,45 @@ namespace Player.Movement
             groundChecker.enabled = true;
             leftWallChecker.enabled = true;
             rightWallChecker.enabled = true;
+        }
+
+        private void UpdateAnimations()
+        {
+            if (moveState is MoveState.HORIZONTAL_JUMP or MoveState.VERTICAL_JUMP)
+                legsAnimationController.PlayAnimation("Jump");
+            else if (_input != Vector2.zero)
+                legsAnimationController.PlayAnimation("Moving");
+            
+            if (moveState == MoveState.HORIZONTAL)
+            {
+                if (_input.x == 0)
+                    headSpriteChanger.ChangeSprite(0); // idle
+                else if (_input.x > 0)
+                    headSpriteChanger.ChangeSprite(2); // right
+                else if (_input.x < 0)
+                    headSpriteChanger.ChangeSprite(1); // left
+            }
+            else if (moveState == MoveState.VERTICAL)
+            {
+                if (_currentDirection.x == 1)
+                {
+                    if (_input.y == 0)
+                        headSpriteChanger.ChangeSprite(0); // idle
+                    else if (_input.y > 0)
+                        headSpriteChanger.ChangeSprite(2); // right
+                    else if (_input.y < 0)
+                        headSpriteChanger.ChangeSprite(1); // left
+                }
+                else if (_currentDirection.x == -1)
+                {
+                    if (_input.y == 0)
+                        headSpriteChanger.ChangeSprite(0); // idle
+                    else if (_input.y > 0)
+                        headSpriteChanger.ChangeSprite(1); // right
+                    else if (_input.y < 0)
+                        headSpriteChanger.ChangeSprite(2); // left
+                }
+            }
         }
     }
 }

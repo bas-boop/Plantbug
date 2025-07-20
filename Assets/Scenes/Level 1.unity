@@ -34174,26 +34174,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 2577393753145728937, guid: 9c97a48efc8b0de4b9bd724bd99a1ca9, type: 3}
-      propertyPath: maxAngleFromUp
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 2577393753145728937, guid: 9c97a48efc8b0de4b9bd724bd99a1ca9, type: 3}
-      propertyPath: projectilePrefab
-      value: 
-      objectReference: {fileID: 7620220009555699410, guid: 89bef8ad14be75c4690b5295e68a334a, type: 3}
-    - target: {fileID: 4887258270118307978, guid: 9c97a48efc8b0de4b9bd724bd99a1ca9, type: 3}
-      propertyPath: speed
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4887258270118307978, guid: 9c97a48efc8b0de4b9bd724bd99a1ca9, type: 3}
-      propertyPath: jumpForce
-      value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 4887258270118307978, guid: 9c97a48efc8b0de4b9bd724bd99a1ca9, type: 3}
-      propertyPath: gravityScale
-      value: 3.5
-      objectReference: {fileID: 0}
     - target: {fileID: 5847506577065970672, guid: 9c97a48efc8b0de4b9bd724bd99a1ca9, type: 3}
       propertyPath: m_LocalPosition.x
       value: -9.9
@@ -34234,22 +34214,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7465883190832868028, guid: 9c97a48efc8b0de4b9bd724bd99a1ca9, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8308590221197421782, guid: 9c97a48efc8b0de4b9bd724bd99a1ca9, type: 3}
-      propertyPath: m_GravityScale
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 7465883190832868028, guid: 9c97a48efc8b0de4b9bd724bd99a1ca9, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 949421023307039873, guid: 9c97a48efc8b0de4b9bd724bd99a1ca9, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2136991466}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c97a48efc8b0de4b9bd724bd99a1ca9, type: 3}
 --- !u!1 &422487875
 GameObject:
@@ -52807,52 +52775,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1157503018}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2136991464 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 949421023307039873, guid: 9c97a48efc8b0de4b9bd724bd99a1ca9, type: 3}
-  m_PrefabInstance: {fileID: 396246833}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2136991465 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5847506577065970672, guid: 9c97a48efc8b0de4b9bd724bd99a1ca9, type: 3}
   m_PrefabInstance: {fileID: 396246833}
   m_PrefabAsset: {fileID: 0}
---- !u!58 &2136991466
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2136991464}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
 --- !u!1001 &252883911387166519
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -22,6 +22,12 @@ namespace Framework.Animation
             if (IsValidAnimation(animationName))
                 _animator.SetTrigger(animationName);
         }
+
+        public void PlayAnimation(string animationName, int number)
+        {
+            if (IsValidAnimation(animationName))
+                _animator.SetInteger(animationName, number);
+        }
     
         private bool IsValidAnimation(string animationName)
         {
