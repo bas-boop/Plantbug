@@ -6,14 +6,20 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/WallClimbPlatformer.unity
-    guid: 00f4d9fc771616849bf8d267f816d3ec
+    path: Assets/Scenes/Level 1.unity
+    guid: 6a75c61b8f7a12f4783343e0bfc5506d
   - enabled: 1
-    path: Assets/Scenes/TiggerSample.unity
-    guid: 46febf10318120d49a6f88691f5bbdd2
+    path: Assets/Scenes/Credits.unity
+    guid: 3287f61f4b2e1e441afbbad9925e9b7f
   - enabled: 1
-    path: Assets/Scenes/Enemy.unity
-    guid: ee70ce6aa743a19468fb8f30e7eda639
+    path: Assets/Scenes/Level 2.unity
+    guid: 8255ed9da9866a14ca9ffbbf369dd8c4
+  - enabled: 1
+    path: Assets/Scenes/BossRoom.unity
+    guid: 3c06bc7e574af6847b9976086eedff39
+  - enabled: 1
+    path: Assets/Scenes/CreditsMaarDitKeerEcht.unity
+    guid: 5750b9bd0e866c5428a9b0b7635b5923
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

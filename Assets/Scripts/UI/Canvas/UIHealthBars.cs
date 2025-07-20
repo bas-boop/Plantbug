@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
@@ -31,6 +32,11 @@ namespace UI.Canvas
             _currentHealth = _totalHealth;
 
             SetupBars();
+        }
+
+        private void Start()
+        {
+            StartFillingBars();
         }
 
         /// <summary>

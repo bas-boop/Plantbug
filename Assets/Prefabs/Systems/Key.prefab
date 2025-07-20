@@ -235,7 +235,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 598112130970066828, guid: 22ce555836549dc4d91c3cdf86c99815, type: 3}
       propertyPath: shapeToUse
-      value: 2
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 598112130970066828, guid: 22ce555836549dc4d91c3cdf86c99815, type: 3}
+      propertyPath: isOneTimeUse
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 598112130970066828, guid: 22ce555836549dc4d91c3cdf86c99815, type: 3}
       propertyPath: onExit.m_PersistentCalls.m_Calls.Array.size
@@ -327,11 +331,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5070842288667807064, guid: 22ce555836549dc4d91c3cdf86c99815, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8921494726290017868, guid: 22ce555836549dc4d91c3cdf86c99815, type: 3}
+      propertyPath: m_Size.x
+      value: 5.96365
+      objectReference: {fileID: 0}
+    - target: {fileID: 8921494726290017868, guid: 22ce555836549dc4d91c3cdf86c99815, type: 3}
+      propertyPath: m_Size.y
+      value: 4.2000465
       objectReference: {fileID: 0}
     - target: {fileID: 8921494726290017868, guid: 22ce555836549dc4d91c3cdf86c99815, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8921494726290017868, guid: 22ce555836549dc4d91c3cdf86c99815, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.024901152
+      objectReference: {fileID: 0}
+    - target: {fileID: 8921494726290017868, guid: 22ce555836549dc4d91c3cdf86c99815, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.07700634
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

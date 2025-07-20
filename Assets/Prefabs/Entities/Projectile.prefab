@@ -191,7 +191,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigidbody: {fileID: 3577669828172146513}
-  speed: 3
+  speed: 20
   damage: 1
   despawnTime: 15
 --- !u!50 &3577669828172146513
@@ -320,6 +320,14 @@ PrefabInstance:
     - target: {fileID: 2005343333833314888, guid: 22ce555836549dc4d91c3cdf86c99815, type: 3}
       propertyPath: m_Name
       value: TriggerArea
+      objectReference: {fileID: 0}
+    - target: {fileID: 5070842288667807064, guid: 22ce555836549dc4d91c3cdf86c99815, type: 3}
+      propertyPath: m_Size.x
+      value: 1.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 5070842288667807064, guid: 22ce555836549dc4d91c3cdf86c99815, type: 3}
+      propertyPath: m_Size.y
+      value: 2.86
       objectReference: {fileID: 0}
     - target: {fileID: 5070842288667807064, guid: 22ce555836549dc4d91c3cdf86c99815, type: 3}
       propertyPath: m_Enabled
